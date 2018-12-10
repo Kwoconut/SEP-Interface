@@ -1,4 +1,5 @@
 package model;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -18,6 +19,24 @@ public class AnalysisList implements Serializable
    public void addAnalysis(Analysis analysis)
    {
       analyses.add(analysis);
+   }
+
+   public ArrayList<Analysis> getAnalysesByEmployee(Employee employee)
+   {
+      ArrayList<Analysis> list = new ArrayList<Analysis>();
+
+      for (Analysis element : analyses)
+      {
+         Employee[] employees = element.getEmployees();
+         for (int i = 0; i < employees.length; i++)
+         {
+            if (employees[i].equals(employee))
+            {
+               list.add(element);
+            }
+         }
+      }
+      return list;
    }
 
    public void removeAnalysis(int index)

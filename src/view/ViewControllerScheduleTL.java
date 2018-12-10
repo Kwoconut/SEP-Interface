@@ -57,9 +57,22 @@ public class ViewControllerScheduleTL
       columnData5.setText(todayDate.toString());
       todayDate.stepForwardOneDay();
       columnData6.setText(todayDate.toString());
+      columnData1.setCellValueFactory(
+            cellData -> cellData.getValue().getStringProperty(2));
+      columnData2.setCellValueFactory(
+            cellData -> cellData.getValue().getStringProperty(3));
+      columnData3.setCellValueFactory(
+            cellData -> cellData.getValue().getStringProperty(4));
+      columnData4.setCellValueFactory(
+            cellData -> cellData.getValue().getStringProperty(5));
+      columnData5.setCellValueFactory(
+            cellData -> cellData.getValue().getStringProperty(6));
+      columnData6.setCellValueFactory(
+            cellData -> cellData.getValue().getStringProperty(7));
+      
 
       ArrayList<Object[]> employees = gui.getController()
-            .executeGetHiredEmployees();
+            .executeGetHiredEmployeesScheduleStatus();
       ObservableList<TableRowData> tableData = FXCollections
             .observableArrayList();
 

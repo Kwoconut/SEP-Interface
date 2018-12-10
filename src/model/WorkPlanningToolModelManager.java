@@ -140,7 +140,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
 
    public void updateAnalysisListFile()
    {
-      String filename = "employeeList.bin";
+      String filename = "analysisList.bin";
       ObjectOutputStream out = null;
 
       try
@@ -169,7 +169,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
 
    public void updateVacationListFile()
    {
-      String filename = "employeeList.bin";
+      String filename = "vacationList.bin";
       ObjectOutputStream out = null;
 
       try
@@ -201,13 +201,14 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
    {
       String filename = "employeeSecurity.txt";
       File file = new File(filename);
-      
+
       try
       {
          PrintWriter out = new PrintWriter(file);
-         for (int i = 0;i < employeeList.size();i++)
+         for (int i = 0; i < employeeList.size(); i++)
          {
-            out.println(employeeList.getEmployee(i).getUsername() + "," + employeeList.getEmployee(i).getPassword());
+            out.println(employeeList.getEmployee(i).getUsername() + ","
+                  + employeeList.getEmployee(i).getPassword());
             out.flush();
          }
          out.close();
@@ -218,7 +219,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       }
 
    }
-   
+
    public AnalysisList getAnalysisList()
    {
       return analysisList;
@@ -232,6 +233,53 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
    public VacationList getVacationList()
    {
       return vacationList;
+   }
+
+   public String getEmployeeScheduleStatus(int index, MyDate date)
+   {
+      if (vacationList
+            .getVacationByEmployee(employeeList.getEmployee(index)) != null)
+      {
+         MyDate startDate = vacationList
+               .getVacationByEmployee(employeeList.getEmployee(index))
+               .getStartDate();
+         MyDate endDate = vacationList
+               .getVacationByEmployee(employeeList.getEmployee(index))
+               .getEndDate();
+         
+         if ((((date.isAfter(startDate)) && (date.isBefore(endDate))) || date.equals(endDate) || date.equals(startDate))
+               && (vacationList
+                     .getVacationByEmployee(employeeList.getEmployee(index))
+                     .isChecked()))
+         {
+            return Employee.status_vacation;
+         }
+         else if ((((date.isAfter(startDate)) && (date.isBefore(endDate))) || date.equals(endDate) || date.equals(startDate))
+               && !(vacationList
+                     .getVacationByEmployee(employeeList.getEmployee(index))
+                     .isChecked()))
+         {
+            return Employee.status_vacationPending;
+         }
+      }
+         if (analysisList
+               .getAnalysesByEmployee(employeeList.getEmployee(index)) != null)
+         {
+            ArrayList<Analysis> list = analysisList
+                  .getAnalysesByEmployee(employeeList.getEmployee(index));
+            for (Analysis element : list)
+            {
+               if (element != null)
+               {
+               if (element.getDate().equals(date))
+               {
+                  return element.getType();
+               }
+               }
+            }
+         }
+      
+      return employeeList.getEmployee(index).getStatus();
    }
 
    public void assignEmployee(Analysis analysis, Employee employee)
@@ -274,8 +322,8 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
          case "Available":
          {
             analysisList.getAnalysis(analysis.getType())
-                  .assignEmployee(employeeList.getEmployee(employee));
-            break;
+            .assignEmployee(employeeList.getEmployee(employee));
+      break;
          }
       }
    }
@@ -298,9 +346,9 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
    public void updateAnalysis(String type, String newType, String matrix,
          int numberOfEmployees)
    {
-      analysisList.getAnalysis(type).setType(newType);
       analysisList.getAnalysis(type).setMatrix(matrix);
       analysisList.getAnalysis(type).setNumberOfEmployees(numberOfEmployees);
+      analysisList.getAnalysis(type).setType(newType);
    }
 
    public void addEmployee(Employee employee)
@@ -368,7 +416,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
    {
       vacationList.approveVacation(index);
    }
-   
+
    public String validateLogin(String user, String password)
    {
       if (user == null || user.isEmpty())
@@ -383,7 +431,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       File file = new File(filename);
       try
       {
-        Scanner in = new Scanner(file);
+         Scanner in = new Scanner(file);
          while (in.hasNext())
          {
             String line = in.nextLine();
@@ -393,7 +441,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
 
             if (user.equals(readUser) && password.equals(readPassword))
             {
-               
+
                return null;
             }
          }
@@ -402,9 +450,9 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       {
          e.printStackTrace();
       }
-      
+
       return "Username or password is invalid";
-      
+
    }
 
 }

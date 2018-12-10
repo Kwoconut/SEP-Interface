@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 
 import model.Employee;
+import model.MyDate;
 import model.WorkPlanningToolModel;
 import view.WorkPlanningToolView;
 
@@ -17,7 +18,7 @@ public class WorkPlanningToolController
           this.view = view;
        }
        
-       public ArrayList<Object[]> executeGetHiredEmployees()
+       public ArrayList<Object[]> executeGetHiredEmployeesScheduleStatus()
        {
           ArrayList<Object[]> all = new ArrayList<>();
 
@@ -25,9 +26,22 @@ public class WorkPlanningToolController
           {
              if(model.getEmployeeList().getEmployee(i).getState() == false)
              {
-                Object[] oneEmployee = new Object[2];
+                MyDate date = MyDate.now();
+                Object[] oneEmployee = new Object[8];
                 oneEmployee[0] = model.getEmployeeList().getEmployee(i).getID();
                 oneEmployee[1] = model.getEmployeeList().getEmployee(i).getName().toString();
+                oneEmployee[2] = model.getEmployeeScheduleStatus(i,date);
+                date.stepForwardOneDay();
+                oneEmployee[3] = model.getEmployeeScheduleStatus(i,date);
+                date.stepForwardOneDay();
+                oneEmployee[4] = model.getEmployeeScheduleStatus(i,date);
+                date.stepForwardOneDay();
+                oneEmployee[5] = model.getEmployeeScheduleStatus(i,date);
+                date.stepForwardOneDay();
+                oneEmployee[6] = model.getEmployeeScheduleStatus(i,date);
+                date.stepForwardOneDay();
+                oneEmployee[7] = model.getEmployeeScheduleStatus(i,date);
+                
                 
                 all.add(oneEmployee);
                 
@@ -35,6 +49,8 @@ public class WorkPlanningToolController
           }
           return all;
        }
+       
+       
        
        public void executeAddEmployee()
        {

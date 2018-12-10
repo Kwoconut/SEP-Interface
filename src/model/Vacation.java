@@ -20,7 +20,6 @@ public class Vacation implements Serializable
       this.reason = reason;
       this.startDate = startDate.copy();
       this.endDate = endDate.copy();
-      employee.setStatusVacationPending();
    }
 
    public void setToChecked()

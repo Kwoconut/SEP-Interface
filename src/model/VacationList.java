@@ -23,7 +23,6 @@ public class VacationList implements Serializable
    public void approveVacation(int index)
    {
       list.get(index).setToChecked();
-      list.get(index).getEmployee().setStatusVacation();
    }
 
    public void declineVacation(int index)

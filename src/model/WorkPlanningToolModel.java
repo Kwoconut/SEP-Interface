@@ -17,6 +17,8 @@ public interface WorkPlanningToolModel
    public void updateVacationListFile();
    
    public void updateEmployeeSecurityFile();
+   
+   public String getEmployeeScheduleStatus(int index,MyDate date);
 
    public EmployeeList getEmployeeList();
 

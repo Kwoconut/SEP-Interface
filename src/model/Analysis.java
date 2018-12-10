@@ -77,6 +77,11 @@ public class Analysis implements Serializable
    {
       return employees.length;
    }
+   
+   public Employee[] getEmployees()
+   {
+      return employees;
+   }
 
    public boolean isAssigned()
    {

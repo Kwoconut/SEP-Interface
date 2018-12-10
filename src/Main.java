@@ -1,6 +1,9 @@
 import controller.WorkPlanningToolController;
+import model.Analysis;
 import model.Employee;
+import model.MyDate;
 import model.Name;
+import model.Vacation;
 import model.WorkPlanningToolModel;
 import model.WorkPlanningToolModelManager;
 import view.WorkPlanningToolGUI;
@@ -15,6 +18,8 @@ public class Main
         WorkPlanningToolController controller = new WorkPlanningToolController(model,view);
         
         
+        
+        System.out.println(model.getVacationList().getVacationByEmployee(model.getEmployeeList().getEmployee(0)));
         
         view.start(controller);
    }
