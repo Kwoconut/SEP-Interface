@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label text="LOGIN" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="56.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="40.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <Pane  prefHeight="155.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="usernameField" layoutX="267.0" layoutY="47.0" prefHeight="35.0" prefWidth="200.0" />
+            <PasswordField fx:id="passwordField" alignment="TOP_CENTER" layoutX="267.0" layoutY="95.0" prefHeight="35.0" prefWidth="200.0" />
+            <Label layoutX="130.0" layoutY="45.0" text="Username">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="134.0" layoutY="92.0" text="Password">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorLabel" layoutX="137.0" layoutY="138.0" text="Password must contain at least 6 characters" textFill="RED">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Pane layoutY="177.0" prefHeight="100.0" prefWidth="600.0">
+               <children>
+                  <Button layoutX="174.0" layoutY="14.0" mnemonicParsing="false" onAction="#loginButtonPressed" prefHeight="50.0" prefWidth="100.0" text="Login"/>
+                  <Button layoutX="327.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="50.0" prefWidth="100.0" text="Cancel"/>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
