@@ -12,6 +12,7 @@ import model.MyDate;
 
 public class ViewControllerScheduleTL
 {
+   
    @FXML
    private TableView<TableRowData> scheduleListTable;
    @FXML
@@ -82,5 +83,11 @@ public class ViewControllerScheduleTL
       }
       scheduleListTable.setItems(tableData);
 
+   }
+   
+   @FXML
+   public void manageVacationButtonPressed()
+   {
+      gui.openManageVacationWindow();
    }
 }

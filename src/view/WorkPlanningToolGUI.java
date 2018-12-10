@@ -13,6 +13,7 @@ public class WorkPlanningToolGUI extends Application
    private WorkPlanningToolController controller;
    private ViewControllerLogin viewControllerLogin;
    private ViewControllerScheduleTL viewControllerScheduleTL;
+   private ViewControllerManageVacation viewControllerManageVacation;
    private Stage primaryStage;
    private Scene primaryScene;
    private static WorkPlanningToolGUI me;
@@ -45,6 +46,7 @@ public class WorkPlanningToolGUI extends Application
          me.start(primaryStage);
          return;
       }
+      me.viewControllerManageVacation = null;
       me.primaryStage = primaryStage;
       me.viewControllerLogin = new ViewControllerLogin(me);
       openWindow(primaryStage, "WindowLogin.fxml", this.viewControllerLogin,
@@ -75,6 +77,14 @@ public class WorkPlanningToolGUI extends Application
       }
    }
    
+   public void openManageVacationWindow()
+   {
+         this.viewControllerManageVacation = new ViewControllerManageVacation(this);
+         openWindow(primaryStage, "WindowManageVacation.fxml", viewControllerManageVacation,
+               600, 400, "Grade list");
+   }
+   
+   
    public void closeWindow()
    {
       if (this.viewControllerScheduleTL == null)
@@ -90,6 +100,7 @@ public class WorkPlanningToolGUI extends Application
          primaryStage.getScene().getWindow().hide();
          primaryStage.setScene(primaryScene);
          primaryStage.show();
+         me.viewControllerLogin = null;
       }
    }
 
