@@ -30,9 +30,12 @@ public class AnalysisList implements Serializable
          Employee[] employees = element.getEmployees();
          for (int i = 0; i < employees.length; i++)
          {
+            if(employees[i] != null)
+            {
             if (employees[i].equals(employee))
             {
                list.add(element);
+            }
             }
          }
       }
@@ -52,6 +55,11 @@ public class AnalysisList implements Serializable
             return element;
       }
       return null;
+   }
+   
+   public Analysis getAnalysis(int index) 
+   {
+      return analyses.get(index);
    }
 
    public String toString()

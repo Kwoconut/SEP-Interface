@@ -90,4 +90,16 @@ public class ViewControllerScheduleTL
    {
       gui.openManageVacationWindow();
    }
+   
+   @FXML
+   public void manageEmployeeButtonPressed()
+   {
+      gui.openManageEmployeeWindow();
+   }
+   
+   @FXML
+   public void manageAnalysisButtonPressed()
+   {
+      gui.ManageATButtonPressed();
+   }
 }

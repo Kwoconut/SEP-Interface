@@ -54,4 +54,9 @@ public class ViewControllerManageVacation
       scheduleListTable.setItems(tableData);
 
    }
+   
+   @FXML public void backToScheduleButoonPressed()
+   {   
+      gui.BacktoScheduleBtt();
+   }
 }

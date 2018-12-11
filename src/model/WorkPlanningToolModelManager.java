@@ -377,6 +377,10 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
    {
       return analysisList.getAnalysis(type);
    }
+   
+   public String getMatrix(int index) {
+      return analysisList.getAnalysis(index).getMatrix();
+   }
 
    public void updateAnalysis(String type, String newType, String matrix,
          int numberOfEmployees)

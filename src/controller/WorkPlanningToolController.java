@@ -71,6 +71,23 @@ public class WorkPlanningToolController
           return all;
        }
        
+       public ArrayList<Object[]> executeGetMatrix() {
+          ArrayList<Object[]> analysis = new ArrayList<>();
+
+          for (int i = 0; i < model.getEmployeeList().size(); i++)
+          {
+             if(model.getEmployeeList().getEmployee(i).getState() == false)
+             {
+                Object[] colData = new Object[2];
+                colData[0] = model.getMatrix(i);
+                
+                analysis.add(colData);
+                
+             }
+          }
+          return analysis;
+       }
+       
        
        
        public void executeAddEmployee()

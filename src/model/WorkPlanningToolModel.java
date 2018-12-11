@@ -33,6 +33,8 @@ public interface WorkPlanningToolModel
    public void removeAnalysis(int index);
 
    public Analysis getAnalysis(String type);
+   
+   public String getMatrix(int index);
 
    public void updateAnalysis(String type, String newType, String matrix,int numberOfEmployees);
 

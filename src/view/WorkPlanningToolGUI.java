@@ -14,8 +14,11 @@ public class WorkPlanningToolGUI extends Application
    private ViewControllerLogin viewControllerLogin;
    private ViewControllerScheduleTL viewControllerScheduleTL;
    private ViewControllerManageVacation viewControllerManageVacation;
+   private ViewControllerManageEmployee viewControllerManageEmployee;
+   private ViewControllerHireEmployee viewControllerHireEmployee;
    private Stage primaryStage;
    private Scene primaryScene;
+   private ViewControllerManageAnalysis viewControllerManageAnalysis;
    private static WorkPlanningToolGUI me;
 
    public WorkPlanningToolGUI()
@@ -91,7 +94,7 @@ public class WorkPlanningToolGUI extends Application
       {
          this.viewControllerScheduleTL = new ViewControllerScheduleTL(this);
          openWindow(primaryStage, "WindowScheduleTL.fxml",
-         this.viewControllerScheduleTL, 600, 400, "Schedule");
+         this.viewControllerScheduleTL, 1000, 500, "Schedule");
          this.viewControllerScheduleTL.init();
          this.primaryScene = primaryStage.getScene();         
       }
@@ -103,6 +106,42 @@ public class WorkPlanningToolGUI extends Application
          me.viewControllerLogin = null;
       }
    }
+   
+   public void openManageEmployeeWindow()
+   {
+         this.viewControllerManageEmployee = new ViewControllerManageEmployee(this);
+         openWindow(primaryStage, "WindowManageEmployee.fxml",
+         this.viewControllerManageEmployee, 1280, 400, "WindowManageEmployee");
+         this.viewControllerManageEmployee.init();
+         this.primaryScene = primaryStage.getScene();         
+   }
+   
+   public void openHireEmployeeWindow()
+   {
+         this.viewControllerHireEmployee = new ViewControllerHireEmployee(this);
+         openWindow(primaryStage, "WindowHireEmployee.fxml",
+         this.viewControllerHireEmployee, 800, 400, "WindowHireEmployee");
+         this.primaryScene = primaryStage.getScene();         
+   }
+   
+   
+   public void BacktoScheduleBtt()
+   {
+      this.viewControllerScheduleTL = new ViewControllerScheduleTL(this);
+      openWindow(primaryStage, "WindowScheduleTL.fxml",
+      this.viewControllerScheduleTL, 1000, 500, "Schedule");
+      this.viewControllerScheduleTL.init();
+      this.primaryScene = primaryStage.getScene();  
+   }
+   
+   public void ManageATButtonPressed()
+   {
+      this.viewControllerManageAnalysis = new ViewControllerManageAnalysis(this);
+      openWindow(primaryStage, "WindowManageAnalysis.fxml", viewControllerManageAnalysis,
+            1000, 500, "Manage Analysis");
+      this.viewControllerManageAnalysis.init();
+   }
+   
 
    public String[] getInput(String type)
    {
