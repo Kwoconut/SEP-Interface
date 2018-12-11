@@ -61,6 +61,11 @@ public class AnalysisList implements Serializable
    {
       return analyses.get(index);
    }
+   
+   public int getSize()
+   {
+      return analyses.size();
+   }
 
    public String toString()
    {
