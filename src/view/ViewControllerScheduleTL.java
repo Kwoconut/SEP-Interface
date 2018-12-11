@@ -2,12 +2,16 @@ package view;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.util.Callback;
+import model.Employee;
 import model.MyDate;
 
 public class ViewControllerScheduleTL
@@ -83,7 +87,331 @@ public class ViewControllerScheduleTL
       }
       scheduleListTable.setItems(tableData);
       
+      
+      columnData1.setCellFactory(new Callback<TableColumn<TableRowData, String>, 
+            TableCell<TableRowData, String>>()
+            {
+                @Override
+                public TableCell<TableRowData, String> call(
+                        TableColumn<TableRowData, String> param)
+                {
+                    return new TableCell<TableRowData, String>()
+                    {
+                        @Override
+                        protected void updateItem(String item, boolean empty)
+                        {
+                            if (!empty)
+                            {
+                                int currentIndex = indexProperty()
+                                        .getValue() < 0 ? 0
+                                        : indexProperty().getValue();
+                                StringProperty type = param
+                                        .getTableView().getItems()
+                                        .get(currentIndex).getStringProperty(2);
+                                if (type.get().equals(Employee.status_available))
+                                {
+                                   setStyle("-fx-background-color: green");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_unavailable))
+                                {
+                                   setStyle("-fx-background-color: red");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacationPending))
+                                {
+                                   setStyle("-fx-background-color: yellow");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacation))
+                                {
+                                   setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else
+                                {
+                                   setStyle("-fx-background-color: blue");
+                                   setText(type.get());
+                                }
+                                
+                            }
+                        }
+                    };
+                }
+            });
+
+      
+      /////////////////////////
+      columnData2.setCellFactory(new Callback<TableColumn<TableRowData, String>, 
+            TableCell<TableRowData, String>>()
+            {
+                @Override
+                public TableCell<TableRowData, String> call(
+                        TableColumn<TableRowData, String> param)
+                {
+                    return new TableCell<TableRowData, String>()
+                    {
+                        @Override
+                        protected void updateItem(String item, boolean empty)
+                        {
+                            if (!empty)
+                            {
+                                int currentIndex = indexProperty()
+                                        .getValue() < 0 ? 0
+                                        : indexProperty().getValue();
+                                StringProperty type = param
+                                        .getTableView().getItems()
+                                        .get(currentIndex).getStringProperty(3);
+                                if (type.get().equals(Employee.status_available))
+                                {
+                                   setStyle("-fx-background-color: green");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_unavailable))
+                                {
+                                   setStyle("-fx-background-color: red");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacationPending))
+                                {
+                                   setStyle("-fx-background-color: yellow");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacation))
+                                {
+                                   setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else
+                                {
+                                   setStyle("-fx-background-color: blue");
+                                   setText(type.get());
+                                }
+                                
+                            }
+                        }
+                    };
+                }
+            });
+      
+      
+      /////////////////////////
+      columnData3.setCellFactory(new Callback<TableColumn<TableRowData, String>, 
+            TableCell<TableRowData, String>>()
+            {
+                @Override
+                public TableCell<TableRowData, String> call(
+                        TableColumn<TableRowData, String> param)
+                {
+                    return new TableCell<TableRowData, String>()
+                    {
+                        @Override
+                        protected void updateItem(String item, boolean empty)
+                        {
+                            if (!empty)
+                            {
+                                int currentIndex = indexProperty()
+                                        .getValue() < 0 ? 0
+                                        : indexProperty().getValue();
+                                StringProperty type = param
+                                        .getTableView().getItems()
+                                        .get(currentIndex).getStringProperty(4);
+                                if (type.get().equals(Employee.status_available))
+                                {
+                                   setStyle("-fx-background-color: green");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_unavailable))
+                                {
+                                   setStyle("-fx-background-color: red");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacationPending))
+                                {
+                                   setStyle("-fx-background-color: yellow");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacation))
+                                {
+                                   setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else
+                                {
+                                   setStyle("-fx-background-color: blue");
+                                   setText(type.get());
+                                }
+                                
+                            }
+                        }
+                    };
+                }
+            });
+      
+      
+      /////////////////////////
+      columnData4.setCellFactory(new Callback<TableColumn<TableRowData, String>, 
+            TableCell<TableRowData, String>>()
+            {
+                @Override
+                public TableCell<TableRowData, String> call(
+                        TableColumn<TableRowData, String> param)
+                {
+                    return new TableCell<TableRowData, String>()
+                    {
+                        @Override
+                        protected void updateItem(String item, boolean empty)
+                        {
+                            if (!empty)
+                            {
+                                int currentIndex = indexProperty()
+                                        .getValue() < 0 ? 0
+                                        : indexProperty().getValue();
+                                StringProperty type = param
+                                        .getTableView().getItems()
+                                        .get(currentIndex).getStringProperty(5);
+                                if (type.get().equals(Employee.status_available))
+                                {
+                                   setStyle("-fx-background-color: green");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_unavailable))
+                                {
+                                   setStyle("-fx-background-color: red");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacationPending))
+                                {
+                                   setStyle("-fx-background-color: yellow");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacation))
+                                {
+                                   setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else
+                                {
+                                   setStyle("-fx-background-color: blue");
+                                   setText(type.get());
+                                }
+                                
+                            }
+                        }
+                    };
+                }
+            });
+
+      
+      /////////////////////////
+      columnData5.setCellFactory(new Callback<TableColumn<TableRowData, String>, 
+            TableCell<TableRowData, String>>()
+            {
+                @Override
+                public TableCell<TableRowData, String> call(
+                        TableColumn<TableRowData, String> param)
+                {
+                    return new TableCell<TableRowData, String>()
+                    {
+                        @Override
+                        protected void updateItem(String item, boolean empty)
+                        {
+                            if (!empty)
+                            {
+                                int currentIndex = indexProperty()
+                                        .getValue() < 0 ? 0
+                                        : indexProperty().getValue();
+                                StringProperty type = param
+                                        .getTableView().getItems()
+                                        .get(currentIndex).getStringProperty(6);
+                                if (type.get().equals(Employee.status_available))
+                                {
+                                   setStyle("-fx-background-color: green");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_unavailable))
+                                {
+                                   setStyle("-fx-background-color: red");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacationPending))
+                                {
+                                   setStyle("-fx-background-color: yellow");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacation))
+                                {
+                                   setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else
+                                {
+                                   setStyle("-fx-background-color: blue");
+                                   setText(type.get());
+                                }
+                                
+                            }
+                        }
+                    };
+                }
+            });
+   
+      
+      //////////////////////////
+      columnData6.setCellFactory(new Callback<TableColumn<TableRowData, String>, 
+            TableCell<TableRowData, String>>()
+            {
+                @Override
+                public TableCell<TableRowData, String> call(
+                        TableColumn<TableRowData, String> param)
+                {
+                    return new TableCell<TableRowData, String>()
+                    {
+                        @Override
+                        protected void updateItem(String item, boolean empty)
+                        {
+                            if (!empty)
+                            {
+                                int currentIndex = indexProperty()
+                                        .getValue() < 0 ? 0
+                                        : indexProperty().getValue();
+                                StringProperty type = param
+                                        .getTableView().getItems()
+                                        .get(currentIndex).getStringProperty(7);
+                                if (type.get().equals(Employee.status_available))
+                                {
+                                   setStyle("-fx-background-color: green");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_unavailable))
+                                {
+                                   setStyle("-fx-background-color: red");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacationPending))
+                                {
+                                   setStyle("-fx-background-color: yellow");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_vacation))
+                                {
+                                   setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else
+                                {
+                                   setStyle("-fx-background-color: blue");
+                                   setText(type.get());
+                                }
+                                
+                            }
+                        }
+                    };
+                }
+            });
    }
+   
+   
    
    @FXML
    public void manageVacationButtonPressed()
