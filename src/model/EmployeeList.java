@@ -98,6 +98,11 @@ public class EmployeeList implements Serializable
    {
       return list.get(index).getState();
    }
+   
+   public String getPreference(int index)
+   {
+      return list.get(index).getPreference();
+   }
 
    public void train(String type, int index)
    {

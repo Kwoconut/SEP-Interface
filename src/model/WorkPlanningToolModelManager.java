@@ -401,10 +401,11 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       return employeeList.getEmployee(employee);
    }
 
-   public void updateEmployee(Employee employee, String name, String lastName)
+   public void updateEmployee(Employee employee, String name, String lastName,String preferences)
    {
       employeeList.getEmployee(employee).getName().setName(name);
       employeeList.getEmployee(employee).getName().setLastName(lastName);
+      employeeList.getEmployee(employee).setPreferences(preferences);
    }
 
    public void setEmployeeToHired(Employee employee)
@@ -489,5 +490,4 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       return "Username or password is invalid";
 
    }
-
 }

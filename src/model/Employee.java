@@ -18,16 +18,18 @@ public class Employee implements Serializable
    private String status;
    private String username;
    private String password;
+   private String preference;
    public static String status_available = "Available";
    public static String status_unavailable = "Unavailable";
    public static String status_vacation = "Vacation";
    public static String status_vacationPending = "Vacation Pending";
    public static String status_ontraining = "Training";
 
-   public Employee(Name name, String ID)
+   public Employee(Name name, String ID,String preference)
    {
       this.name = name;
       this.ID = ID;
+      this.preference = preference;
       status = Employee.status_available;
       readTrainingTypes();
       generateUsername();
@@ -117,6 +119,11 @@ public class Employee implements Serializable
    {
       return state;
    }
+   
+   public String getPreference()
+   {
+      return preference;
+   }
 
    public void train(String type)
    {
@@ -127,6 +134,11 @@ public class Employee implements Serializable
    public TrainingList getTrainingList()
    {
       return training;
+   }
+   
+   public void setPreferences(String preferences)
+   {
+      this.preference = preferences;
    }
 
    public void setToFired()
@@ -185,6 +197,7 @@ public class Employee implements Serializable
       s += name + "\n";
       s += ID + "\n";
       s += status + "\n\n";
+      s += preference + "\n\n";
       s += "Trainings:\n" + training.toString() + "\n";
       s += "Fired?" + " " + state +"\n";
 

@@ -42,7 +42,7 @@ public interface WorkPlanningToolModel
 
    public Employee getEmployee(Employee employee);
 
-   public void updateEmployee(Employee employee, String name, String lastName);
+   public void updateEmployee(Employee employee, String name, String lastName,String preferences);
 
    public void setEmployeeToHired(Employee employee);
 
