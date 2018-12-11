@@ -82,7 +82,7 @@ public class ViewControllerScheduleTL
          tableData.add(new TableRowData(employees.get(i)));
       }
       scheduleListTable.setItems(tableData);
-
+      
    }
    
    @FXML
