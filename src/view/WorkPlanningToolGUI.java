@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.Employee;
 
 public class WorkPlanningToolGUI extends Application
       implements WorkPlanningToolView
@@ -22,6 +23,7 @@ public class WorkPlanningToolGUI extends Application
    private ViewControllerManageAnalysis viewControllerManageAnalysis;
    private ViewControllerScheduleEMP viewControllerScheduleEMP;
    private static WorkPlanningToolGUI me;
+   private Employee loggedPerson;
 
    public WorkPlanningToolGUI()
    {
@@ -177,6 +179,16 @@ public class WorkPlanningToolGUI extends Application
       openWindow(primaryStage, "WindowManageAnalysis.fxml", viewControllerManageAnalysis,
             1000, 500, "Manage Analysis");
       this.viewControllerManageAnalysis.init();
+   }
+   
+   public void setLoggedPerson(Employee employee)
+   {
+      loggedPerson = employee;
+   }
+   
+   public Employee getLoggedPerson()
+   {
+      return loggedPerson;
    }
    
 

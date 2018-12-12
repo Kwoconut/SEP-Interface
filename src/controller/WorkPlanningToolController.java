@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Employee;
 import model.MyDate;
+import model.Vacation;
 import model.WorkPlanningToolModel;
 import view.WorkPlanningToolView;
 
@@ -17,6 +18,22 @@ public class WorkPlanningToolController
           this.model = model;
           this.view = view;
        }
+       
+       public ArrayList<Employee> executeGetEmployees()
+       {
+             ArrayList<Employee> all = new ArrayList<>();
+
+             for (int i = 0; i < model.getEmployeeList().size(); i++)
+             {
+                if(model.getEmployeeList().getEmployee(i).getState() == false)
+                {
+                    all.add(model.getEmployeeList().getEmployee(i));
+                   
+                }
+             }
+             return all;
+          }
+       
        
        public ArrayList<Object[]> executeGetHiredEmployeesScheduleStatus()
        {
@@ -143,4 +160,10 @@ public class WorkPlanningToolController
           model.getVacationList().declineVacation(index);;
           model.updateVacationListFile();
        }
+  
+  public void executeRequestVacation(Vacation vacation)
+  {
+         model.requestVacation(vacation);
+         model.updateVacationListFile();
+  }
 }

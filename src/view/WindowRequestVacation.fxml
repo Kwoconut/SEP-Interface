@@ -12,17 +12,17 @@
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="600.0">
          <children>
-            <DatePicker layoutX="66.0" layoutY="16.0" />
-            <DatePicker layoutX="370.0" layoutY="16.0" />
+            <DatePicker fx:id="startDatePicker" layoutX="66.0" layoutY="16.0" />
+            <DatePicker fx:id="endDatePicker" layoutX="370.0" layoutY="16.0" />
             <Label layoutX="408.0" layoutY="45.0" text="Vacation End Date" />
-            <TextArea layoutX="14.0" layoutY="74.0" prefHeight="274.0" prefWidth="570.0" />
+            <TextArea fx:id="reasonTextField" layoutX="14.0" layoutY="74.0" prefHeight="274.0" prefWidth="570.0" />
             <Label layoutX="102.0" layoutY="45.0" text="Vacation Start Date" />
             <Label layoutX="267.0" layoutY="348.0" prefHeight="21.0" prefWidth="67.0" text="Reasons  ">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="404.0" layoutY="426.0" mnemonicParsing="false" text="Request vacation" />
+            <Button layoutX="404.0" layoutY="426.0" mnemonicParsing="false" onAction="#requestVacationButtonPressed" text="Request vacation" />
             <Button layoutX="100.0" layoutY="426.0" mnemonicParsing="false" onAction="#BacktoScheduleButton" text="Back to Schedule" />
          </children>
       </AnchorPane>
