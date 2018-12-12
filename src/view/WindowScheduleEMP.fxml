@@ -25,7 +25,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" text="Request vacation" />
+            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" text="Request vacation" onAction="#requestVacationButtonPressed" />
          </children>
     </AnchorPane>
   </children>

@@ -411,4 +411,9 @@ public class ViewControllerScheduleEMP
             });
    }
    
+   @FXML
+   public void requestVacationButtonPressed()
+   {
+      gui.openRequestVacationWindow();
+   }
 }

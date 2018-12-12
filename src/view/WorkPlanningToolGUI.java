@@ -11,6 +11,7 @@ public class WorkPlanningToolGUI extends Application
       implements WorkPlanningToolView
 {
    private WorkPlanningToolController controller;
+   private ViewControllerRequestVacation viewControllerRequestVacation;
    private ViewControllerLogin viewControllerLogin;
    private ViewControllerScheduleTL viewControllerScheduleTL;
    private ViewControllerManageVacation viewControllerManageVacation;
@@ -89,6 +90,13 @@ public class WorkPlanningToolGUI extends Application
          this.viewControllerManageVacation.init();
    }
    
+   public void openRequestVacationWindow()
+   {
+      this.viewControllerRequestVacation= new ViewControllerRequestVacation(this);
+      openWindow(primaryStage, "WindowRequestVacation.fxml", viewControllerRequestVacation,
+            600, 500, "Request Vacation");
+   }
+   
    
    public void closeWindowTeamLeader()
    {
@@ -152,6 +160,14 @@ public class WorkPlanningToolGUI extends Application
       openWindow(primaryStage, "WindowScheduleTL.fxml",
       this.viewControllerScheduleTL, 1000, 500, "Schedule");
       this.viewControllerScheduleTL.init();
+      this.primaryScene = primaryStage.getScene();  
+   }
+   public void BacktoScheduleButton()
+   {
+      this.viewControllerScheduleEMP = new ViewControllerScheduleEMP(this);
+      openWindow(primaryStage, "WindowScheduleEMP.fxml",
+      this.viewControllerScheduleEMP, 1000, 500, "Schedule");
+      this.viewControllerScheduleEMP.init();
       this.primaryScene = primaryStage.getScene();  
    }
    
