@@ -39,8 +39,7 @@ public class Main
         model.requestVacation(new Vacation(model.getEmployeeList().getEmployee(2),"Reason",new MyDate(13,12,2018),new MyDate(14,12,2018)));
         model.updateVacationListFile();*/
         
-/*        model.requestVacation(new Vacation(model.getEmployeeList().getEmployee(1),"Reason",new MyDate(15,12,2018),new MyDate(15,12,2018)));
-        model.approveVacation(0);
+       /*model.requestVacation(new Vacation(model.getEmployeeList().getEmployee(1),"Reason",new MyDate(15,12,2018),new MyDate(15,12,2018)));
         model.updateVacationListFile();*/
         
         

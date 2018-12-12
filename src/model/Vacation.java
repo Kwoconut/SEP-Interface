@@ -67,4 +67,16 @@ public class Vacation implements Serializable
       s += endDate + "\n";
       return s;
    }
+   
+   public String vacationChecked()
+   {
+      if (check == true)
+      {
+         return "Checked";
+      }
+      else
+      {
+         return "Not Checked";
+      }
+   }
 }

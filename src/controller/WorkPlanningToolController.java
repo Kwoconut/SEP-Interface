@@ -107,4 +107,40 @@ public class WorkPlanningToolController
        {
           return model.validateLogin(username, password);
        }
+       
+       public ArrayList<Object[]> executeGetVacations()
+       {
+          ArrayList<Object[]> all = new ArrayList<>();
+
+          for (int i = 0; i < model.getVacationList().size(); i++)
+          {
+
+                Object[] oneVacation = new Object[6];
+                oneVacation[0] = model.getVacationList().getVacation(i).getEmployee().getName().toString();
+                oneVacation[1] = model.getVacationList().getVacation(i).getEmployee().getID();
+                oneVacation[2] = model.getVacationList().getVacation(i).getStartDate().toString();
+                oneVacation[3] = model.getVacationList().getVacation(i).getEndDate().toString();
+                oneVacation[4] = model.getVacationList().getVacation(i).getReason();
+                oneVacation[5] = model.getVacationList().getVacation(i).vacationChecked();
+                
+                all.add(oneVacation);
+
+          }
+          return all;
+       }
+
+ public void executeApproveVacation(int index)
+       {
+          for (int i = 0; i < model.getVacationList().size(); i++)
+          {
+           model.getVacationList().approveVacation(index);; 
+           model.updateVacationListFile();
+          }
+       }
+
+  public void executeDeclineVacation(int index)
+       {
+          model.getVacationList().declineVacation(index);;
+          model.updateVacationListFile();
+       }
 }

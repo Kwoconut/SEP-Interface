@@ -67,4 +67,15 @@ public class VacationList implements Serializable
       }
       return s;
    }
+
+   public int size()
+   {
+      return list.size();
+   }
+
+   public Vacation getVacation(int i)
+   {
+      return list.get(i);
+   }
+   
 }
