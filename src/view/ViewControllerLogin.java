@@ -23,11 +23,14 @@ public class ViewControllerLogin
    
    @FXML public void loginButtonPressed()
    {
-      if (gui.getController().validateLogin(usernameField.getText(), passwordField.getText()) == null)
+      if (gui.getController().validateLogin(usernameField.getText(), passwordField.getText()).equals("employee"))
       {
-         gui.closeWindow();
+         gui.closeWindowEmployee();
       }
-      else
+      else if (gui.getController().validateLogin(usernameField.getText(), passwordField.getText()).equals("teamLeader"))
+      {
+         gui.closeWindowTeamLeader();
+      }
          errorLabel.setText(gui.getController().validateLogin(usernameField.getText(), passwordField.getText()));
    }
    

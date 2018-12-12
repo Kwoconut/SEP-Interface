@@ -19,6 +19,7 @@ public class WorkPlanningToolGUI extends Application
    private Stage primaryStage;
    private Scene primaryScene;
    private ViewControllerManageAnalysis viewControllerManageAnalysis;
+   private ViewControllerScheduleEMP viewControllerScheduleEMP;
    private static WorkPlanningToolGUI me;
 
    public WorkPlanningToolGUI()
@@ -88,7 +89,7 @@ public class WorkPlanningToolGUI extends Application
    }
    
    
-   public void closeWindow()
+   public void closeWindowTeamLeader()
    {
       if (this.viewControllerScheduleTL == null)
       {
@@ -96,6 +97,25 @@ public class WorkPlanningToolGUI extends Application
          openWindow(primaryStage, "WindowScheduleTL.fxml",
          this.viewControllerScheduleTL, 1000, 500, "Schedule");
          this.viewControllerScheduleTL.init();
+         this.primaryScene = primaryStage.getScene();         
+      }
+      else
+      {
+         primaryStage.getScene().getWindow().hide();
+         primaryStage.setScene(primaryScene);
+         primaryStage.show();
+         me.viewControllerLogin = null;
+      }
+   }
+   
+   public void closeWindowEmployee()
+   {
+      if (this.viewControllerScheduleEMP == null)
+      {
+         this.viewControllerScheduleEMP = new ViewControllerScheduleEMP(this);
+         openWindow(primaryStage, "WindowScheduleEMP.fxml",
+         this.viewControllerScheduleEMP, 1000, 500, "Schedule");
+         this.viewControllerScheduleEMP.init();
          this.primaryScene = primaryStage.getScene();         
       }
       else

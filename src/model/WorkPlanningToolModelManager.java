@@ -482,7 +482,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
             if (user.equals(readUser) && password.equals(readPassword))
             {
 
-               return null;
+               return "employee";
             }
          }
       }
@@ -490,6 +490,30 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       {
          e.printStackTrace();
       }
+      String filename2 = "teamLeaderSecurity.txt";
+      File file2 = new File(filename2);
+      try
+      {
+         Scanner in = new Scanner(file2);
+         while (in.hasNext())
+         {
+            String line = in.nextLine();
+            String[] token = line.split(",");
+            String readUser = token[0].trim();
+            String readPassword = token[1].trim();
+
+            if (user.equals(readUser) && password.equals(readPassword))
+            {
+
+               return "teamLeader";
+            }
+         }
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+
 
       return "Username or password is invalid";
 

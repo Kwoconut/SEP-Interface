@@ -70,7 +70,10 @@ public class ViewControllerManageAnalysis
          tableData.add(new TableRowData(employees.get(i)));
       }
       AnalysisListTable.setItems(tableData);
+      ((TableView<TableRowData>) tableData).getSelectionModel().setCellSelectionEnabled(true);
+      
    }
+   
 
    @FXML
    public void BacktoScheduleBtt()
