@@ -62,6 +62,18 @@ public class AnalysisList implements Serializable
       return analyses.get(index);
    }
    
+   public Analysis getAnalysis(Analysis analysis)
+   {
+      for (Analysis element : analyses)
+      {
+         if(element.equals(analysis))
+         {
+            return analysis;
+         }
+      }
+      return null;
+   }
+   
    public int getSize()
    {
       return analyses.size();

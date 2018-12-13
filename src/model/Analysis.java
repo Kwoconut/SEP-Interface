@@ -1,4 +1,5 @@
 package model;
+
 import java.io.Serializable;
 
 public class Analysis implements Serializable
@@ -13,14 +14,26 @@ public class Analysis implements Serializable
    private int numberOfEmployees;
    private boolean assigned;
    private Employee[] employees;
+   private String week;
 
-   public Analysis(String type, String matrix, int maxNumberOfEmployees,
-         MyDate date)
+   public Analysis(String type, String matrix, String week,
+         int maxNumberOfEmployees, MyDate date)
    {
       this.type = type;
       this.matrix = matrix;
+      this.week = week;
       this.date = date;
       this.employees = new Employee[maxNumberOfEmployees];
+   }
+
+   public String getWeek()
+   {
+      return week;
+   }
+
+   public void setWeek(String week)
+   {
+      this.week = week;
    }
 
    public String getType()
@@ -77,10 +90,27 @@ public class Analysis implements Serializable
    {
       return employees.length;
    }
-   
+
    public Employee[] getEmployees()
    {
       return employees;
+   }
+
+   public String StringEmployee()
+   {
+      String s = "";
+      for (int i = 0; i < employees.length; i++)
+      {
+         if (employees[i] != null)
+         {
+            s += employees[i].getName() + "\n";
+         }
+         else
+         {
+            s += employees[i] + "\n";
+         }
+      }
+      return s;
    }
 
    public boolean isAssigned()

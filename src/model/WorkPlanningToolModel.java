@@ -34,9 +34,15 @@ public interface WorkPlanningToolModel
 
    public Analysis getAnalysis(String type);
    
+   public Analysis getAnalysis(int index);
+   
+   public Analysis getAnalysis(Analysis analysis);
+   
+   public void updateAnalysis(Analysis analysis, String newType, String matrix, String week);
+   
+   public String getType(int index);
+   
    public String getMatrix(int index);
-
-   public void updateAnalysis(String type, String newType, String matrix,int numberOfEmployees);
 
    public void addEmployee(Employee employee);
 
