@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.Analysis;
 import model.Employee;
 
 public class WorkPlanningToolGUI extends Application
@@ -18,6 +19,8 @@ public class WorkPlanningToolGUI extends Application
    private ViewControllerManageVacation viewControllerManageVacation;
    private ViewControllerManageEmployee viewControllerManageEmployee;
    private ViewControllerHireEmployee viewControllerHireEmployee;
+   private ViewControllerAssignEmployee viewControllerAssignEmployee;
+   private ViewControllerEditAnalysis viewControllerEditAnalysis;
    private Stage primaryStage;
    private Scene primaryScene;
    private ViewControllerManageAnalysis viewControllerManageAnalysis;
@@ -25,6 +28,9 @@ public class WorkPlanningToolGUI extends Application
    private static WorkPlanningToolGUI me;
    private Employee loggedPerson;
 
+   private Analysis remember1;
+   private ViewControllerCreateAnalysis viewControllerCreateAnalysis;
+   
    public WorkPlanningToolGUI()
    {
       if (me == null)
@@ -82,6 +88,52 @@ public class WorkPlanningToolGUI extends Application
       {
          e.printStackTrace();
       }
+   }
+   public void openCreateAnalysisWindow()
+   {
+         this.viewControllerCreateAnalysis = new ViewControllerCreateAnalysis(this);
+         openWindow(primaryStage, "WindowCreateAnalysis.fxml",
+         this.viewControllerCreateAnalysis, 570, 311, "Create Analysis");
+         this.primaryScene = primaryStage.getScene();         
+   }
+   public void openAssignEmployeeWindow()
+   {
+         this.viewControllerAssignEmployee = new ViewControllerAssignEmployee(this);
+         openWindow(primaryStage, "WindowAssignEmployee.fxml",
+         this.viewControllerAssignEmployee, 491, 307, "Assign Employee");
+         this.viewControllerAssignEmployee.init();
+         this.primaryScene = primaryStage.getScene();  
+         controller.executeUpdateAnalysis();
+   }
+   
+   public void CloseAssignEmployeeWindow() {
+      this.viewControllerManageAnalysis = new ViewControllerManageAnalysis(this);
+      openWindow(primaryStage, "WindowManageAnalysis.fxml", viewControllerManageAnalysis,
+            1000, 500, "Manage Analysis");
+      this.viewControllerManageAnalysis.init();   
+      
+   }
+   public void openEditAnalysisWindow()
+   {
+         this.viewControllerEditAnalysis = new ViewControllerEditAnalysis(this);
+         openWindow(primaryStage, "WindowEditAnalysis.fxml",
+         this.viewControllerEditAnalysis, 578, 244, "Edit Analysis");
+         this.primaryScene = primaryStage.getScene();         
+   }
+   public void closeEditAnalysisWindow()
+   {
+      this.viewControllerManageAnalysis = new ViewControllerManageAnalysis(this);
+      openWindow(primaryStage, "WindowManageAnalysis.fxml",
+      this.viewControllerManageAnalysis, 1000, 500, "WindowManageAnalysis");
+      this.viewControllerManageAnalysis.init();
+      this.primaryScene = primaryStage.getScene(); 
+   }
+   public void CloseCreateAnalysisWindow()
+   {
+      this.viewControllerManageAnalysis = new ViewControllerManageAnalysis(this);
+      openWindow(primaryStage, "WindowManageAnalysis.fxml", viewControllerManageAnalysis,
+            1000, 500, "Manage Analysis");
+      this.viewControllerManageAnalysis.init();    
    }
    
    public void openManageVacationWindow()
@@ -211,5 +263,12 @@ public class WorkPlanningToolGUI extends Application
    {
       return controller;
    }
-
+   public void SetRememberData(Analysis analysis)
+   {
+      this.remember1 = analysis;
+   }
+   public Analysis getRememberData()
+   {
+      return remember1;
+   }
 }

@@ -98,7 +98,7 @@ public class WorkPlanningToolController
                 colData[0] = model.getMatrix(i);
                 colData[1] = model.getAnalysisList().getAnalysis(i).getType();
                 colData[2] = model.getAnalysisList().getAnalysis(i).getWeek();
-                colData[3] = model.getAnalysisList().getAnalysis(i).getNumberOfEmployees();
+                colData[3] = model.getAnalysisList().getAnalysis(i).getMaxNumberOfEmployees();
                 colData[4] = model.getAnalysisList().getAnalysis(i).getDate();
                 colData[5] = model.getAnalysisList().getAnalysis(i).StringEmployee();
                 analysis.add(colData);

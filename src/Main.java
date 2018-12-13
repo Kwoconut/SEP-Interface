@@ -18,13 +18,13 @@ public class Main
         WorkPlanningToolController controller = new WorkPlanningToolController(model,view);
         
         
-/*        model.addEmployee(new Employee(new Name("Valeriu","Marandici"),"VM777","Hates ma-ta"));
+/*     model.addEmployee(new Employee(new Name("Valeriu","Marandici"),"VM777","Hates ma-ta"));
         model.addEmployee(new Employee(new Name("Gheorge","Romanciuc"),"GR210","Loves dick"));
         model.addEmployee(new Employee(new Name("Angel","Somicu"),"AS350","Loves redheads"));
         model.addEmployee(new Employee(new Name("Andrei","Abalasei"),"AB560","Sluga"));
         model.updateEmployeeListFile();
-        model.updateEmployeeSecurityFile();
-        
+        model.updateEmployeeSecurityFile();*/
+/*        
         Analysis analysis = new Analysis("Fat","Fat",2,MyDate.now());
         Analysis analysis2 = new Analysis("Sugar","Sugar",3,new MyDate(13,12,2018));
         
