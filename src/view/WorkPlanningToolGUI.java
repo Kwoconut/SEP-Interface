@@ -140,7 +140,7 @@ public class WorkPlanningToolGUI extends Application
    {
          this.viewControllerManageVacation = new ViewControllerManageVacation(this);
          openWindow(primaryStage, "WindowManageVacation.fxml", viewControllerManageVacation,
-               600, 500, "Vacation list");
+               1010, 500, "Vacation list");
          this.viewControllerManageVacation.init();
    }
    

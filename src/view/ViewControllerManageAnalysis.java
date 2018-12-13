@@ -48,14 +48,8 @@ public class ViewControllerManageAnalysis
             cellData -> cellData.getValue().getStringProperty(2));
       nrOfEmployee.setCellValueFactory(
             cellData -> cellData.getValue().getIntegerProperty(3));
-
-      MyDate todayDate = MyDate.now();
-      date.setText(todayDate.toString());
-      todayDate.stepForwardOneDay();
-
       date.setCellValueFactory(
             cellData -> cellData.getValue().getStringProperty(4));
-
       PersonsAssigned.setCellValueFactory(
             cellData -> cellData.getValue().getStringProperty(5));
 
@@ -90,26 +84,29 @@ public class ViewControllerManageAnalysis
       int index = AnalysisListTable.getSelectionModel().getSelectedIndex();
       for (int i = 0; i < list.size(); i++)
       {
-           if (i == index)
-           {
-              gui.SetRememberData(list.get(i));
-           }
+         if (i == index)
+         {
+            gui.SetRememberData(list.get(i));
+         }
       }
       gui.openAssignEmployeeWindow();
    }
+
    @FXML
-   public void openEditAnalysis() {
+   public void openEditAnalysis()
+   {
       ArrayList<Analysis> list = gui.getController().executeGetAnalysis();
       int index = AnalysisListTable.getSelectionModel().getSelectedIndex();
       for (int i = 0; i < list.size(); i++)
       {
-           if (i == index)
-           {
-              gui.SetRememberData(list.get(i));
-           }
+         if (i == index)
+         {
+            gui.SetRememberData(list.get(i));
+         }
       }
       gui.openEditAnalysisWindow();
    }
+
    @FXML
    private void DeleteAnalysisButtonPressed()
    {
@@ -135,10 +132,10 @@ public class ViewControllerManageAnalysis
       int index = AnalysisListTable.getSelectionModel().getSelectedIndex();
       for (int i = 0; i < list.size(); i++)
       {
-           if (i == index)
-           {
-              gui.SetRememberData(list.get(i));
-           }
+         if (i == index)
+         {
+            gui.SetRememberData(list.get(i));
+         }
       }
    }
 
