@@ -1,35 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="402.0" prefWidth="723.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="494.0" prefWidth="892.0" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="AnalysisListTable" editable="true" layoutY="46.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="668.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
-              <columns>
-                <TableColumn fx:id="matrix" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Matrix" />
-                <TableColumn fx:id="week" maxWidth="150.0" minWidth="60.0" prefWidth="60.0" text="Week" />
-                  <TableColumn fx:id="analysis" prefWidth="160.79998779296875" text="Analysis" />
-                  <TableColumn fx:id="day1" prefWidth="75.0" text="d1" />
-                  <TableColumn fx:id="day2" prefWidth="75.0" text="d2" />
-                  <TableColumn fx:id="day3" prefWidth="75.0" text="d3" />
-                  <TableColumn fx:id="day4" prefWidth="75.0" text="d4" />
-                  <TableColumn fx:id="day5" prefWidth="75.0" text="d5" />
-                  <TableColumn fx:id="day6" prefWidth="75.0" text="d6" />
-              </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
-            <Button layoutX="332.0" layoutY="15.0" mnemonicParsing="false" text="Delete Analisis" textFill="RED" />
-            <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" text="Create Analysis" />
-            <Button layoutX="177.0" layoutY="15.0" mnemonicParsing="false" text="Edit Analysis" />
-            <Button layoutX="519.0" layoutY="15.0" mnemonicParsing="false" onAction="#BacktoScheduleBtt" text="Back to Schedule" />
+            <SplitPane dividerPositions="0.8021010789324248" layoutX="-1.0" layoutY="-1.0" prefHeight="502.0" prefWidth="1000.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="562.0">
+                     <children>
+                        <TableView fx:id="AnalysisListTable" editable="true" layoutX="-1.0" layoutY="-1.0" minWidth="-Infinity" prefHeight="502.0" prefWidth="798.0">
+                          <columns>
+                            <TableColumn fx:id="matrix" maxWidth="312.000036239624" minWidth="0.0" prefWidth="98.40003204345703" resizable="false" text="Matrix" />
+                            <TableColumn fx:id="analysis" maxWidth="283.2000427246094" minWidth="1.5999755620955511" prefWidth="142.39999389648438" resizable="false" text="Analysis" />
+                              <TableColumn fx:id="week" maxWidth="283.2000427246094" minWidth="1.5999755620955511" prefWidth="65.60000610351562" resizable="false" text="Week" />
+                              <TableColumn fx:id="nrOfEmployee" maxWidth="2000.0" minWidth="1.0" prefWidth="109.5999755859375" resizable="false" text="Nr. of Persons" />
+                              <TableColumn fx:id="date" maxWidth="2000.0" prefWidth="130.4000244140625" resizable="false" text="Date" />
+                              <TableColumn fx:id="PersonsAssigned" maxWidth="2000.0" prefWidth="249.59995117187498" resizable="false" text="Persons assigned" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="426.0" prefWidth="182.0">
+                     <children>
+                        <Button layoutX="30.0" layoutY="89.0" mnemonicParsing="false" onAction="#CreateAnalysisWinodw" text="Create Analysis" />
+                        <Button layoutX="30.0" layoutY="141.0" mnemonicParsing="false" text="Edit Analysis" />
+                        <Button layoutX="31.0" layoutY="237.0" mnemonicParsing="false" onAction="#DeleteAnalysisButtonPressed" text="Delete Analisis" textFill="RED" />
+                        <Button layoutX="30.0" layoutY="399.0" mnemonicParsing="false" onAction="#BacktoScheduleBtt" text="Back to Schedule" />
+                        <Button layoutX="30.0" layoutY="37.0" mnemonicParsing="false" onAction="#AssignEmployeeBtt" text="Assign Employee" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
          </children>
     </AnchorPane>
   </children>

@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
+import model.Analysis;
 import model.Employee;
 import model.MyDate;
 import model.WorkPlanningToolModel;
@@ -71,31 +72,60 @@ public class WorkPlanningToolController
           return all;
        }
        
-       public ArrayList<Object[]> executeGetMatrix() {
+       public ArrayList<Object[]> executeGetAnalysisData() {
           ArrayList<Object[]> analysis = new ArrayList<>();
-
+          
           for (int i = 0; i < model.getAnalysisList().getSize(); i++)
           {
-                Object[] colData = new Object[1];
+               
+                Object[] colData = new Object[6];
                 colData[0] = model.getMatrix(i);
-                
+                colData[1] = model.getAnalysisList().getAnalysis(i).getType();
+                colData[2] = model.getAnalysisList().getAnalysis(i).getWeek();
+                colData[3] = model.getAnalysisList().getAnalysis(i).getNumberOfEmployees();
+                colData[4] = model.getAnalysisList().getAnalysis(i).getDate();
+                colData[5] = model.getAnalysisList().getAnalysis(i).StringEmployee();
                 analysis.add(colData);
-                
-             
           }
           return analysis;
        }
+       public ArrayList<Object[]> executeGetEmployeesData() {
+          ArrayList<Object[]> employeeAvailable = new ArrayList<>();
+          
+          for (int i = 0; i < model.getEmployeeList().size(); i++)
+          {
+               
+                Object[] colData = new Object[2];
+                colData[0] = model.getEmployeeList().getEmployee(i).getName().toString();
+                colData[1] = model.getEmployeeList().getPreference(i);
+                
+                employeeAvailable.add(colData);
+          }
+          return employeeAvailable;
+       }
        
-       
+       public void executeAssignEmployee(Analysis analysis, Employee employee) {
+          model.assignEmployee(analysis, employee);
+       }
        
        public void executeAddEmployee()
        {
           
        }
-       
-       public void executeAddAnalysis()
+              
+       public void executeAddAnalysis(Analysis analysis)
        {
-          
+          model.addAnalysis(analysis);
+       }
+       
+       public void executeUpdateAnalysis() 
+       {
+          model.updateAnalysisListFile();
+       }
+       
+       public void executeRemoveAnalysis(int index)
+       {
+       model.removeAnalysis(index);
        }
        
        public void executeRequestVacation()
@@ -103,8 +133,36 @@ public class WorkPlanningToolController
           
        }
        
+       public ArrayList<Analysis> executeGetAnalysis()
+       {
+          ArrayList<Analysis> all = new ArrayList<>();
+          
+          for (int i = 0; i < model.getAnalysisList().getSize();i++)
+          {
+             all.add(model.getAnalysis(i));
+          }
+          
+          return all;
+       }
+       
+       public ArrayList<Employee> executeGetEmployees()
+       {
+          ArrayList<Employee> all = new ArrayList<>();
+          
+          for (int i = 0; i < model.getAnalysisList().getSize();i++)
+          {
+             if(model.getEmployeeList().getEmployee(i).getState() == false)
+             {
+             all.add(model.getEmployeeList().getEmployee(i));
+             }
+          }
+          
+          return all;
+       }
+       
        public String validateLogin(String username,String password)
        {
           return model.validateLogin(username, password);
        }
+       
 }

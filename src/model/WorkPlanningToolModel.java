@@ -34,7 +34,15 @@ public interface WorkPlanningToolModel
 
    public Analysis getAnalysis(String type);
    
+   public Analysis getAnalysis(int index);
+   
+   public Analysis getAnalysis(Analysis analysis);
+   
+   public String getType(int index);
+   
    public String getMatrix(int index);
+   
+  // public int GetNumberOfEmployeesPerAnalysis(int i, MyDate date);
 
    public void updateAnalysis(String type, String newType, String matrix,int numberOfEmployees);
 
@@ -65,4 +73,6 @@ public interface WorkPlanningToolModel
    public void approveVacation(int index);
    
    public String validateLogin(String username,String password);
+
+ 
 }

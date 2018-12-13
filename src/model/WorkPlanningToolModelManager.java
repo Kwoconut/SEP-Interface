@@ -378,8 +378,21 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       return analysisList.getAnalysis(type);
    }
    
+   public Analysis getAnalysis(int index)
+   {
+      return analysisList.getAnalysis(index);
+   }
+   
+   public Analysis getAnalysis(Analysis analysis)
+   {
+      return analysisList.getAnalysis(analysis);
+   }
+   
    public String getMatrix(int index) {
       return analysisList.getAnalysis(index).getMatrix();
+   }
+   public String getType(int index) {
+      return analysisList.getAnalysis(index).getType();
    }
 
    public void updateAnalysis(String type, String newType, String matrix,
@@ -494,4 +507,9 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       return "Username or password is invalid";
 
    }
+
+
+
+
+ 
 }
