@@ -33,6 +33,7 @@ public class ViewControllerRequestVacation
 
    public void requestVacationButtonPressed()
    {
+      
       Vacation vacation = new Vacation(gui.getLoggedPerson(),
             reasonTextField.getText(),
             new MyDate(startDatePicker.getValue().getDayOfMonth(),
@@ -43,6 +44,7 @@ public class ViewControllerRequestVacation
                   endDatePicker.getValue().getYear()));
       gui.getController().executeRequestVacation(vacation);
       gui.BacktoScheduleButton();
+      
    }
 
 }
