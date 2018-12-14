@@ -10,9 +10,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
+import model.Analysis;
 import model.Employee;
-import model.EmployeeList;
-import model.WorkPlanningToolModelManager;
+
 
 public class ViewControllerAssignEmployee
 {
@@ -25,6 +25,7 @@ public class ViewControllerAssignEmployee
 
    private WorkPlanningToolGUI gui;
 
+
    public ViewControllerAssignEmployee(WorkPlanningToolGUI gui)
    {
       this.gui = gui;
@@ -36,15 +37,17 @@ public class ViewControllerAssignEmployee
             cellData -> cellData.getValue().getStringProperty(0));
       preferences.setCellValueFactory(
             cellData -> cellData.getValue().getStringProperty(1));
+      
+      Analysis analysis = gui.getRememberData();
 
-      ArrayList<Object[]> analysis = gui.getController()
-            .executeGetEmployeesData();
+      ArrayList<Object[]> employees = gui.getController()
+            .executeGetEmployeesTrained(analysis.getType());
       ObservableList<TableRowData> tableData = FXCollections
             .observableArrayList();
 
-      for (int i = 0; i < analysis.size(); i++)
+      for (int i = 0; i < employees.size(); i++)
       {
-         tableData.add(new TableRowData(analysis.get(i)));
+         tableData.add(new TableRowData(employees.get(i)));
       }
       employeeAvailable.setItems(tableData);
    }
@@ -58,7 +61,7 @@ public class ViewControllerAssignEmployee
          if (alert.getResult() == ButtonType.YES) 
          {
            
-            ArrayList<Employee> list = gui.getController().executeGetEmployees();
+           ArrayList<Employee> list = gui.getController().executeGetTrainedEmployees(gui.getRememberData().getType());
             for (int i = 0;i < list.size();i++)
             {
                if (i == employeeAvailable.getSelectionModel().getSelectedIndex())

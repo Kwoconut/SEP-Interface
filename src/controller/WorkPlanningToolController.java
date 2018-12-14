@@ -105,20 +105,40 @@ public class WorkPlanningToolController
           }
           return analysis;
        }
-       public ArrayList<Object[]> executeGetEmployeesData() {
-          ArrayList<Object[]> employeeAvailable = new ArrayList<>();
-          
+       
+       public ArrayList<Object[]> executeGetEmployeesTrained(String type)
+       {
+          ArrayList<Object[]> all = new ArrayList<>();
+
           for (int i = 0; i < model.getEmployeeList().size(); i++)
           {
-               
-                Object[] colData = new Object[2];
-                colData[0] = model.getEmployeeList().getEmployee(i).getName().toString();
-                colData[1] = model.getEmployeeList().getPreference(i);
-                
-                employeeAvailable.add(colData);
+           if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(type).getTraining() == true)
+           {
+             Object[] oneEmployee = new Object[2];
+             oneEmployee[0] = model.getEmployeeList().getEmployee(i).getName().toString();
+             oneEmployee[1] = model.getEmployeeList().getEmployee(i).getPreference();
+             all.add(oneEmployee);
+             model.updateAnalysisListFile();
           }
-          return employeeAvailable;
+          }
+          return all;
        }
+       
+       public ArrayList<Employee> executeGetTrainedEmployees(String type)
+       {
+          ArrayList<Employee> all = new ArrayList<>();
+
+          for (int i = 0; i < model.getEmployeeList().size(); i++)
+          {
+           if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(type).getTraining() == true)
+           {
+             all.add(model.getEmployeeList().getEmployee(i));
+          }
+         
+          }
+          return all;
+       }
+    
        
        public void executeAssignEmployee(Analysis analysis, Employee employee) {
           model.assignEmployee(analysis, employee);
