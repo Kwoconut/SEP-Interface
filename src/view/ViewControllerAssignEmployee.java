@@ -38,10 +38,9 @@ public class ViewControllerAssignEmployee
       preferences.setCellValueFactory(
             cellData -> cellData.getValue().getStringProperty(1));
       
-      Analysis analysis = gui.getRememberData();
 
       ArrayList<Object[]> employees = gui.getController()
-            .executeGetEmployeesTrained(analysis.getType());
+            .executeGetEmployeesTrained(gui.getRememberData().getType());
       ObservableList<TableRowData> tableData = FXCollections
             .observableArrayList();
 

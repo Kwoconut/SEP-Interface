@@ -71,4 +71,6 @@ public interface WorkPlanningToolModel
    public void approveVacation(int index);
    
    public String validateLogin(String username,String password);
+   
+   public boolean validateID(String id);
 }

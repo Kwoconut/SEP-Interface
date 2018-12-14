@@ -128,6 +128,11 @@ public class ViewControllerScheduleEMP
                                    setStyle("-fx-background-color: orange");
                                    setText(type.get());
                                 }
+                                else if (type.get().equals(Employee.status_ontraining))
+                                {
+                                   setStyle("-fx-background-color: purple");
+                                   setText(type.get());
+                                }
                                 else
                                 {
                                    setStyle("-fx-background-color: blue");
@@ -180,6 +185,11 @@ public class ViewControllerScheduleEMP
                                 else if (type.get().equals(Employee.status_vacation))
                                 {
                                    setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_ontraining))
+                                {
+                                   setStyle("-fx-background-color: purple");
                                    setText(type.get());
                                 }
                                 else
@@ -236,6 +246,11 @@ public class ViewControllerScheduleEMP
                                    setStyle("-fx-background-color: orange");
                                    setText(type.get());
                                 }
+                                else if (type.get().equals(Employee.status_ontraining))
+                                {
+                                   setStyle("-fx-background-color: purple");
+                                   setText(type.get());
+                                }
                                 else
                                 {
                                    setStyle("-fx-background-color: blue");
@@ -288,6 +303,11 @@ public class ViewControllerScheduleEMP
                                 else if (type.get().equals(Employee.status_vacation))
                                 {
                                    setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_ontraining))
+                                {
+                                   setStyle("-fx-background-color: purple");
                                    setText(type.get());
                                 }
                                 else
@@ -344,6 +364,11 @@ public class ViewControllerScheduleEMP
                                    setStyle("-fx-background-color: orange");
                                    setText(type.get());
                                 }
+                                else if (type.get().equals(Employee.status_ontraining))
+                                {
+                                   setStyle("-fx-background-color: purple");
+                                   setText(type.get());
+                                }
                                 else
                                 {
                                    setStyle("-fx-background-color: blue");
@@ -396,6 +421,11 @@ public class ViewControllerScheduleEMP
                                 else if (type.get().equals(Employee.status_vacation))
                                 {
                                    setStyle("-fx-background-color: orange");
+                                   setText(type.get());
+                                }
+                                else if (type.get().equals(Employee.status_ontraining))
+                                {
+                                   setStyle("-fx-background-color: purple");
                                    setText(type.get());
                                 }
                                 else

@@ -531,5 +531,17 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       return "Username or password is invalid";
 
    }
+   
+   public boolean validateID(String id)
+   {
+      for (int i = 0; i < employeeList.size(); i++)
+      {
+         if(employeeList.getEmployee(i).getID().equals(id))
+         {
+            return false;
+         }
+      }
+     return true;
+   }
 
 }

@@ -30,6 +30,9 @@ public class WorkPlanningToolGUI extends Application
 
    private Analysis remember1;
    private ViewControllerCreateAnalysis viewControllerCreateAnalysis;
+   private ViewControllerSetTraining viewControllerSetTraining;
+   private ViewControllerEditEmployee viewControllerEditEmployee;
+   private int index;
    
    public WorkPlanningToolGUI()
    {
@@ -199,12 +202,23 @@ public class WorkPlanningToolGUI extends Application
          this.primaryScene = primaryStage.getScene();         
    }
    
+   public void openManageEmployeeShowHiddenWindow()
+   {
+         this.viewControllerManageEmployee = new ViewControllerManageEmployee(this);
+         openWindow(primaryStage, "WindowManageEmployee.fxml",
+         this.viewControllerManageEmployee, 1280, 400, "WindowManageEmployee");
+         this.viewControllerManageEmployee.clearTable();
+         this.viewControllerManageEmployee.init2();
+         this.primaryScene = primaryStage.getScene();         
+   }
+   
    public void openHireEmployeeWindow()
    {
          this.viewControllerHireEmployee = new ViewControllerHireEmployee(this);
          openWindow(primaryStage, "WindowHireEmployee.fxml",
          this.viewControllerHireEmployee, 800, 400, "WindowHireEmployee");
-         this.primaryScene = primaryStage.getScene();         
+         this.primaryScene = primaryStage.getScene();    
+         
    }
    
    
@@ -263,6 +277,41 @@ public class WorkPlanningToolGUI extends Application
    {
       return controller;
    }
+   
+   public void IDPassed()
+   {
+      this.viewControllerManageEmployee = new ViewControllerManageEmployee(this);
+      openWindow(primaryStage, "WindowManageEmployee.fxml",
+      this.viewControllerManageEmployee, 1280, 400, "WindowManageEmployee");
+      this.viewControllerManageEmployee.init();
+      this.primaryScene = primaryStage.getScene();  
+      
+   }
+   public void editEmployeeButtonPressed()
+   {
+      this.viewControllerEditEmployee = new ViewControllerEditEmployee(this);
+      openWindow(primaryStage, "WindowEditEmployee.fxml", viewControllerEditEmployee,
+            600, 400, "Edit Employee");
+    this.viewControllerEditEmployee.init2();
+   }
+   public void setTrainingButtonPressed(int index)
+   {
+      this.viewControllerSetTraining = new ViewControllerSetTraining(this);
+      openWindow(primaryStage, "WindowSetTraining.fxml", viewControllerSetTraining,
+            600, 400, "Set Trainings");
+    this.viewControllerSetTraining.init(index);
+   }
+   
+   public void rememberIndex(int index)
+   {
+      this.index = index;
+   }
+   
+   public int getIndex()
+   {
+      return index;
+   }
+   
    public void SetRememberData(Analysis analysis)
    {
       this.remember1 = analysis;

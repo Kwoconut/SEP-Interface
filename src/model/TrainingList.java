@@ -34,6 +34,11 @@ public class TrainingList implements Serializable
       }
       return null;
    }
+   
+   public Training getTraining(int index)
+   {
+     return trainings.get(index);
+   }
 
    public String toString()
    {

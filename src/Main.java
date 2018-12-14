@@ -41,9 +41,7 @@ public class Main
         
        /*model.requestVacation(new Vacation(model.getEmployeeList().getEmployee(1),"Reason",new MyDate(15,12,2018),new MyDate(15,12,2018)));
         model.updateVacationListFile();*/
-        
-        
-        
         view.start(controller);
+        
    }
 }

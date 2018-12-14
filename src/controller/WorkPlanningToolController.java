@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Analysis;
 import model.Employee;
+import model.EmployeeList;
 import model.MyDate;
 import model.Vacation;
 import model.WorkPlanningToolModel;
@@ -77,9 +78,81 @@ public class WorkPlanningToolController
              if(model.getEmployeeList().getEmployee(i).getState() == false)
              {
  
-                Object[] oneEmployee = new Object[8];
+                Object[] oneEmployee = new Object[11];
                 oneEmployee[0] = model.getEmployeeList().getEmployee(i).getID();
                 oneEmployee[1] = model.getEmployeeList().getEmployee(i).getName().toString();
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(0).getTraining() == false)
+                {
+                   oneEmployee[2] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[2] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(1).getTraining() == false)
+                {
+                   oneEmployee[3] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[3] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(2).getTraining() == false)
+                {
+                   oneEmployee[4] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[4] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(3).getTraining() == false)
+                {
+                   oneEmployee[5] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[5] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(4).getTraining() == false)
+                {
+                   oneEmployee[6] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[6] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(5).getTraining() == false)
+                {
+                   oneEmployee[7] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[7] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(6).getTraining() == false)
+                {
+                   oneEmployee[8] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[8] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(7).getTraining() == false)
+                {
+                   oneEmployee[9] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[9] = "Trained";
+                }
+                if (model.getEmployeeList().getEmployee(i).getTrainingList().getTraining(8).getTraining() == false)
+                {
+                   oneEmployee[10] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[10] = "Trained";
+                }
                 
                 
                 all.add(oneEmployee);
@@ -88,6 +161,132 @@ public class WorkPlanningToolController
           }
           return all;
        }
+       
+       public EmployeeList sortEmployees()
+       {
+             EmployeeList sortedEmployeeList = new EmployeeList();
+          
+          ArrayList<Employee> hiredEmployees = model.getHiredEmployees();
+          ArrayList<Employee> firedEmployees = model.getFiredEmployees();
+          
+          for (int i=0;i<hiredEmployees.size();i++)
+          {
+             sortedEmployeeList.addEmployee(hiredEmployees.get(i));
+          }
+          for (int i=0;i<firedEmployees.size();i++)
+          {
+             sortedEmployeeList.addEmployee(firedEmployees.get(i));
+          }
+          
+          return sortedEmployeeList;
+       }
+       
+       public ArrayList<Object[]> executeShowHiddenEmployees()
+       {
+          ArrayList<Object[]> all = new ArrayList<>();
+          
+          EmployeeList sortedEmployeeList = new EmployeeList();
+          
+          ArrayList<Employee> hiredEmployees = model.getHiredEmployees();
+          ArrayList<Employee> firedEmployees = model.getFiredEmployees();
+          
+          for (int i=0;i<hiredEmployees.size();i++)
+          {
+             sortedEmployeeList.addEmployee(hiredEmployees.get(i));
+          }
+          for (int i=0;i<firedEmployees.size();i++)
+          {
+             sortedEmployeeList.addEmployee(firedEmployees.get(i));
+          }
+          
+
+          for (int i = 0; i < sortedEmployeeList.size(); i++)
+          {
+ 
+                Object[] oneEmployee = new Object[11];
+                oneEmployee[0] = sortedEmployeeList.getEmployee(i).getID();
+                oneEmployee[1] = sortedEmployeeList.getEmployee(i).getName().toString();
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(0).getTraining() == false)
+                {
+                   oneEmployee[2] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[2] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(1).getTraining() == false)
+                {
+                   oneEmployee[3] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[3] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(2).getTraining() == false)
+                {
+                   oneEmployee[4] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[4] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(3).getTraining() == false)
+                {
+                   oneEmployee[5] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[5] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(4).getTraining() == false)
+                {
+                   oneEmployee[6] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[6] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(5).getTraining() == false)
+                {
+                   oneEmployee[7] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[7] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(6).getTraining() == false)
+                {
+                   oneEmployee[8] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[8] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(7).getTraining() == false)
+                {
+                   oneEmployee[9] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[9] = "Trained";
+                }
+                if (sortedEmployeeList.getEmployee(i).getTrainingList().getTraining(8).getTraining() == false)
+                {
+                   oneEmployee[10] = "Not Trained";
+                }
+                else
+                {
+                   oneEmployee[10] = "Trained";
+                }
+                
+                
+                all.add(oneEmployee);
+                
+          }
+          return all;
+       }
+       
+       
        public ArrayList<Object[]> executeGetAnalysisData() {
           ArrayList<Object[]> analysis = new ArrayList<>();
           
@@ -118,7 +317,6 @@ public class WorkPlanningToolController
              oneEmployee[0] = model.getEmployeeList().getEmployee(i).getName().toString();
              oneEmployee[1] = model.getEmployeeList().getEmployee(i).getPreference();
              all.add(oneEmployee);
-             model.updateAnalysisListFile();
           }
           }
           return all;
@@ -193,20 +391,20 @@ public class WorkPlanningToolController
        }
        
        
-       
-       public void executeAddEmployee()
+       public void executeAddEmployee(Employee employee)
        {
-          
+          model.addEmployee(employee);
        }
        
-       public void executeAddAnalysis()
+       public void executeUpdateEmployeeList()
        {
-          
+          model.updateEmployeeListFile();
+          model.updateEmployeeSecurityFile();
        }
-       
-       public void executeRequestVacation()
+       public void executeRemoveEmployee(int index)
        {
-          
+          model.removeEmployee(index);
+          executeUpdateEmployeeList();
        }
        
        public String validateLogin(String username,String password)
@@ -255,4 +453,118 @@ public class WorkPlanningToolController
          model.requestVacation(vacation);
          model.updateVacationListFile();
   }
+  
+  public boolean validateID(String id)
+  {
+     return model.validateID(id);
+  }
+  public String getName(int index)
+  {
+     return sortEmployees().getEmployee(index).getName().getName();
+  }
+  public String getLastName(int index)
+  {
+     return sortEmployees().getEmployee(index).getName().getLastName();
+  }
+  public void setName(int index, String name)
+  {
+     sortEmployees().getEmployee(index).getName().setName(name);
+  }
+  public void setLastName(int index, String lastName)
+  {
+     sortEmployees().getEmployee(index).getName().setLastName(lastName);
+  }
+  public void setStatusAvailable(int index)
+  {
+     sortEmployees().getEmployee(index).setStatusAvailable();
+  }
+  public void setStatusUnavailable(int index)
+  {
+     sortEmployees().getEmployee(index).setStatusUnavailable();
+  }
+  public void HideButtonPressed(int index)
+  {
+     sortEmployees().getEmployee(index).setToFired();
+  }
+  public void UnHideButtonPressed(int index)
+  {
+     sortEmployees().getEmployee(index).setToHired();
+  }
+  public void OnTrainingButtonPressed(int index)
+  {
+     sortEmployees().getEmployee(index).setStatusTraining();
+  }
+  public void TrainedButtonPressed1(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(0).train();
+  }
+  public void TrainedButtonPressed2(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(1).train();
+  }
+  public void TrainedButtonPressed3(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(2).train();
+  }
+  public void TrainedButtonPressed4(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(3).train();
+  }
+  public void TrainedButtonPressed5(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(4).train();
+  }
+  public void TrainedButtonPressed6(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(5).train();
+  }
+  public void TrainedButtonPressed7(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(6).train();
+  }
+  public void TrainedButtonPressed8(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(7).train();
+  }
+  public void TrainedButtonPressed9(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(8).train();
+  }
+  public void NotTrainedButtonPressed1(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(0).untrain();
+  }
+  public void NotTrainedButtonPressed2(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(1).untrain();
+  }
+  public void NotTrainedButtonPressed3(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(2).untrain();
+  }
+  public void NotTrainedButtonPressed4(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(3).untrain();
+  }
+  public void NotTrainedButtonPressed5(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(4).untrain();
+  }
+  public void NotTrainedButtonPressed6(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(5).untrain();
+  }
+  public void NotTrainedButtonPressed7(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(6).untrain();
+  }
+  public void NotTrainedButtonPressed8(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(7).untrain();
+  }
+  public void NotTrainedButtonPressed9(int index)
+  {
+     sortEmployees().getEmployee(index).getTrainingList().getTraining(8).untrain();
+  }
+  
 }
