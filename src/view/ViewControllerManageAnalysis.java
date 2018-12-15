@@ -102,6 +102,7 @@ public class ViewControllerManageAnalysis
          if (i == index)
          {
             gui.SetRememberData(list.get(i));
+            gui.rememberIndex(i);
          }
       }
       gui.openEditAnalysisWindow();

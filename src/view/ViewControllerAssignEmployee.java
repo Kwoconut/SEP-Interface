@@ -61,17 +61,13 @@ public class ViewControllerAssignEmployee
          {
            
            ArrayList<Employee> list = gui.getController().executeGetTrainedEmployees(gui.getRememberData().getType());
-            for (int i = 0;i < list.size();i++)
-            {
-               if (i == employeeAvailable.getSelectionModel().getSelectedIndex())
-               {
-                  gui.getController().executeAssignEmployee(gui.getRememberData(),list.get(i));
+
+                  gui.getController().executeAssignEmployee(gui.getRememberData(),list.get(employeeAvailable.getSelectionModel().getSelectedIndex()));
                   gui.getController().executeUpdateAnalysis();
                   gui.CloseAssignEmployeeWindow();                  
-               }
             }
-         }
-      }
+       }
+      
 
    
 

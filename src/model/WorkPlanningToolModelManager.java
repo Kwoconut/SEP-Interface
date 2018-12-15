@@ -137,7 +137,7 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
 
                if ((date.isBefore(startDate)) || (date.isAfter(endDate)))
                {
-                  analysisList.getAnalysis(analysis.getType())
+                  analysisList.getAnalysis(analysis)
                         .assignEmployee(employeeList.getEmployee(employee));
                }
             }
@@ -154,13 +154,13 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
          }
          case "Vacation Pending":
          {
-            analysisList.getAnalysis(analysis.getType())
+            analysisList.getAnalysis(analysis)
                   .assignEmployee(employeeList.getEmployee(employee));
             break;
          }
          case "Available":
          {
-            analysisList.getAnalysis(analysis.getType())
+            analysisList.getAnalysis(analysis)
                   .assignEmployee(employeeList.getEmployee(employee));
             break;
          }

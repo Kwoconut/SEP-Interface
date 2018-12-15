@@ -173,7 +173,7 @@ public class Analysis implements Serializable
       }
       Analysis other = (Analysis) obj;
       return type.equals(other.getType()) && matrix.equals(other.getMatrix())
-            && getMaxNumberOfEmployees() == other.getMaxNumberOfEmployees()
+            && getMaxNumberOfEmployees() == other.getMaxNumberOfEmployees() && week.equals(other.getWeek())
             && date.equals(other.getDate());
    }
 }
