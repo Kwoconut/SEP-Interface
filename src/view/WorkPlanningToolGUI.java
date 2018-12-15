@@ -121,6 +121,7 @@ public class WorkPlanningToolGUI extends Application
          this.viewControllerEditAnalysis = new ViewControllerEditAnalysis(this);
          openWindow(primaryStage, "WindowEditAnalysis.fxml",
          this.viewControllerEditAnalysis, 578, 244, "Edit Analysis");
+         this.viewControllerEditAnalysis.init();
          this.primaryScene = primaryStage.getScene();         
    }
    public void closeEditAnalysisWindow()

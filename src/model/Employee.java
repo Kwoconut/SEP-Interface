@@ -31,7 +31,7 @@ public class Employee implements Serializable
       this.ID = ID;
       this.preference = preference;
       status = Employee.status_available;
-      readTrainingTypes();
+      training = WorkPlanningToolFileManager.readTrainingTypes();
       generateUsername();
       generatePassword();
    }
@@ -72,26 +72,6 @@ public class Employee implements Serializable
       {
          int index = new Random().nextInt(passwordCharacters.length());
          password += passwordCharacters.charAt(index);
-      }
-   }
-   
-   private void readTrainingTypes()
-   {
-      training = new TrainingList();
-      String filename = "analysisTypes.txt";
-      try
-      {
-         File file = new File(filename);
-         Scanner in = new Scanner(file);
-         while (in.hasNext())
-         {
-            String line = in.nextLine();
-            training.addTraining(new Training(line));
-         }
-      }
-      catch (FileNotFoundException e)
-      {
-         e.printStackTrace();
       }
    }
 

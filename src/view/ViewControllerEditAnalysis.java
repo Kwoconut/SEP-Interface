@@ -33,6 +33,13 @@ import model.WorkPlanningToolModelManager;
       {
          this.gui = gui;
       }
+      
+      public void init()
+      {
+         MatrixTextField.setText(gui.getRememberData().getMatrix());
+         AnalysisTextField.setText(gui.getRememberData().getType());
+         WeekTextField.setText(gui.getRememberData().getWeek());
+      }
 
 
       @FXML
