@@ -305,6 +305,11 @@ public class WorkPlanningToolController
           return analysis;
        }
        
+       public String executeValidateAnalysisDate(Analysis analysis)
+       {
+          return model.validateAnalysisDate(analysis);
+       }
+       
        public ArrayList<Object[]> executeGetEmployeesTrained(String type)
        {
           ArrayList<Object[]> all = new ArrayList<>();
