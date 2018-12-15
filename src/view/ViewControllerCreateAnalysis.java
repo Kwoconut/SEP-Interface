@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Analysis;
 import model.MyDate;
@@ -24,6 +25,9 @@ public class ViewControllerCreateAnalysis
 
    @FXML
    private DatePicker DateDatePicker;
+   
+   @FXML
+   private Label errorLabel;
 
    @FXML
    private WorkPlanningToolGUI gui;
@@ -43,9 +47,16 @@ public class ViewControllerCreateAnalysis
             new MyDate(DateDatePicker.getValue().getDayOfMonth(),
                   DateDatePicker.getValue().getMonthValue(),
                   DateDatePicker.getValue().getYear()));
+      if (gui.getController().executeValidateAnalysisDate(analysis) != null)
+      {
+         errorLabel.setText(gui.getController().executeValidateAnalysisDate(analysis));
+      }
+      else
+      {
       gui.getController().executeAddAnalysis(analysis);
       gui.getController().executeUpdateAnalysis();
       gui.ManageATButtonPressed();
+      }
    }
 
    @FXML

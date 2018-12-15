@@ -367,6 +367,16 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
    {
       analysisList.addAnalysis(analysis);
    }
+   
+   public String validateAnalysisDate(Analysis analysis)
+   {
+      if (analysis.getDate().isBefore(MyDate.now()))
+      {
+         return "An analysis cannot be created for past dates";
+      }
+      else
+         return null;
+   }
 
    public void removeAnalysis(int index)
    {

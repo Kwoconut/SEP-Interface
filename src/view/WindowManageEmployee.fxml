@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="1284.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="1284.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="393.0" prefWidth="1249.0" VBox.vgrow="ALWAYS">
          <children>
@@ -29,13 +29,13 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="280.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeEmployeeButtonPressed" text="Remove Employee" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#hireEmployeeButtonPressed" text="Hire Employee" />
-            <Button layoutX="153.0" layoutY="14.0" mnemonicParsing="false" onAction="#editEmployeeButtonPressed" text="Edit Employee" />
-            <Button layoutX="445.0" layoutY="14.0" mnemonicParsing="false" onAction="#setTrainingButtonPressed" text="Set Training for Employee" />
+            <Button layoutX="280.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeEmployeeButtonPressed" text="Remove employee" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#hireEmployeeButtonPressed" text="Hire employee" />
+            <Button layoutX="153.0" layoutY="14.0" mnemonicParsing="false" onAction="#editEmployeeButtonPressed" text="Edit employee" />
+            <Button layoutX="445.0" layoutY="14.0" mnemonicParsing="false" onAction="#setTrainingButtonPressed" text="Set training for employee" />
             <Button layoutX="1137.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToScheduleButtonPressed" text="Back to Schedule" />
             <Label fx:id="changeLabel" layoutX="779.0" layoutY="19.0" prefHeight="21.0" prefWidth="354.0" text="" textFill="#e80e0e" />
-            <Button layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onAction="#showHiddenButtonPressed" text="Show Hidden" />
+            <Button layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onAction="#showHiddenButtonPressed" text="Show hidden" />
          </children>
     </AnchorPane>
   </children>
