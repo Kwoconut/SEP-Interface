@@ -29,6 +29,8 @@ public interface WorkPlanningToolModel
    public void assignEmployee(Analysis analysis, Employee employee);
 
    public void addAnalysis(Analysis analysis);
+   
+   public String validateAnalysisDate(Analysis analysis);
 
    public void removeAnalysis(int index);
 
