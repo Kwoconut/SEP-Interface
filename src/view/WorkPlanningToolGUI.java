@@ -263,15 +263,6 @@ public class WorkPlanningToolGUI extends Application
       return null;
    }
 
-   public void showOutput(String... output)
-   {
-
-   }
-
-   public void showError(String error)
-   {
-
-   }
    
    public WorkPlanningToolController getController()
    {
