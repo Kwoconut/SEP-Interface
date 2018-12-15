@@ -31,7 +31,7 @@ public class Employee implements Serializable
       this.ID = ID;
       this.preference = preference;
       status = Employee.status_available;
-      training = WorkPlanningToolFileManager.readTrainingTypes();
+      training = WorkPlanningToolFile.readTrainingTypes();
       generateUsername();
       generatePassword();
    }

@@ -7,7 +7,7 @@ import model.Employee;
 import model.EmployeeList;
 import model.MyDate;
 import model.Vacation;
-import model.WorkPlanningToolFileManager;
+import model.WorkPlanningToolFile;
 import model.WorkPlanningToolModel;
 import view.WorkPlanningToolView;
 
@@ -356,7 +356,7 @@ public class WorkPlanningToolController
        
        public void executeUpdateAnalysis() 
        {
-          WorkPlanningToolFileManager.updateAnalysisListFile(model.getAnalysisList());
+          WorkPlanningToolFile.updateAnalysisListFile(model.getAnalysisList());
        }
        
        public void executeEditAnalysis(Analysis analysis, String newType, String matrix, String week) {
@@ -404,8 +404,8 @@ public class WorkPlanningToolController
        
        public void executeUpdateEmployeeList()
        {
-          WorkPlanningToolFileManager.updateEmployeeListFile(model.getEmployeeList());
-          WorkPlanningToolFileManager.updateEmployeeSecurityFile(model.getEmployeeList());
+          WorkPlanningToolFile.updateEmployeeListFile(model.getEmployeeList());
+          WorkPlanningToolFile.updateEmployeeSecurityFile(model.getEmployeeList());
        }
        public void executeRemoveEmployee(int index)
        {
@@ -444,20 +444,20 @@ public class WorkPlanningToolController
           for (int i = 0; i < model.getVacationList().size(); i++)
           {
            model.getVacationList().approveVacation(index);; 
-           WorkPlanningToolFileManager.updateVacationListFile(model.getVacationList());
+           WorkPlanningToolFile.updateVacationListFile(model.getVacationList());
           }
        }
 
   public void executeDeclineVacation(int index)
        {
           model.getVacationList().declineVacation(index);;
-          WorkPlanningToolFileManager.updateVacationListFile(model.getVacationList());
+          WorkPlanningToolFile.updateVacationListFile(model.getVacationList());
        }
   
   public void executeRequestVacation(Vacation vacation)
   {
          model.requestVacation(vacation);
-         WorkPlanningToolFileManager.updateVacationListFile(model.getVacationList());
+         WorkPlanningToolFile.updateVacationListFile(model.getVacationList());
   }
   
   public boolean validateID(String id)

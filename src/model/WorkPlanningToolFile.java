@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class WorkPlanningToolFileManager
+public class WorkPlanningToolFile
 {
      public static File employeeListFile = new File("employeeList.bin");
      public static File employeeSecurityFile = new File("employeeSecurity.txt");

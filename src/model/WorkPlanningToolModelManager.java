@@ -20,9 +20,9 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
 
    public WorkPlanningToolModelManager()
    {
-      analysisList = WorkPlanningToolFileManager.readAnalysisListFile();
-      employeeList = WorkPlanningToolFileManager.readEmployeeListFile();
-      vacationList = WorkPlanningToolFileManager.readVacationListFile();
+      analysisList = WorkPlanningToolFile.readAnalysisListFile();
+      employeeList = WorkPlanningToolFile.readEmployeeListFile();
+      vacationList = WorkPlanningToolFile.readVacationListFile();
    }
 
    public AnalysisList getAnalysisList()
