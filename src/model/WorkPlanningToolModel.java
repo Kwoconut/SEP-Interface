@@ -4,19 +4,6 @@ import java.util.ArrayList;
 
 public interface WorkPlanningToolModel
 {
-   public EmployeeList readEmployeeListFile();
-
-   public AnalysisList readAnalysisListFile();
-
-   public VacationList readVacationListFile();
-
-   public void updateEmployeeListFile();
-
-   public void updateAnalysisListFile();
-
-   public void updateVacationListFile();
-   
-   public void updateEmployeeSecurityFile();
    
    public String getEmployeeScheduleStatus(int index,MyDate date);
 

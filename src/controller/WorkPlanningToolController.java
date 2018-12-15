@@ -7,6 +7,7 @@ import model.Employee;
 import model.EmployeeList;
 import model.MyDate;
 import model.Vacation;
+import model.WorkPlanningToolFileManager;
 import model.WorkPlanningToolModel;
 import view.WorkPlanningToolView;
 
@@ -355,7 +356,7 @@ public class WorkPlanningToolController
        
        public void executeUpdateAnalysis() 
        {
-          model.updateAnalysisListFile();
+          WorkPlanningToolFileManager.updateAnalysisListFile(model.getAnalysisList());
        }
        
        public void executeEditAnalysis(Analysis analysis, String newType, String matrix, String week) {
@@ -403,8 +404,8 @@ public class WorkPlanningToolController
        
        public void executeUpdateEmployeeList()
        {
-          model.updateEmployeeListFile();
-          model.updateEmployeeSecurityFile();
+          WorkPlanningToolFileManager.updateEmployeeListFile(model.getEmployeeList());
+          WorkPlanningToolFileManager.updateEmployeeSecurityFile(model.getEmployeeList());
        }
        public void executeRemoveEmployee(int index)
        {
@@ -443,20 +444,20 @@ public class WorkPlanningToolController
           for (int i = 0; i < model.getVacationList().size(); i++)
           {
            model.getVacationList().approveVacation(index);; 
-           model.updateVacationListFile();
+           WorkPlanningToolFileManager.updateVacationListFile(model.getVacationList());
           }
        }
 
   public void executeDeclineVacation(int index)
        {
           model.getVacationList().declineVacation(index);;
-          model.updateVacationListFile();
+          WorkPlanningToolFileManager.updateVacationListFile(model.getVacationList());
        }
   
   public void executeRequestVacation(Vacation vacation)
   {
          model.requestVacation(vacation);
-         model.updateVacationListFile();
+         WorkPlanningToolFileManager.updateVacationListFile(model.getVacationList());
   }
   
   public boolean validateID(String id)
