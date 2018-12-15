@@ -20,7 +20,7 @@
             <TextField fx:id="ELastNameField" layoutX="289.0" layoutY="81.0" prefHeight="31.0" prefWidth="174.0" />
             <Button layoutX="346.0" layoutY="341.0" mnemonicParsing="false" onAction="#addEmployeeButtonPressed" text="Add Employee" />
             <Button layoutX="498.0" layoutY="341.0" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
-            <Text layoutX="67.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preferences" />
+            <Text layoutX="49.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preferences(optionally)" />
             <TextField fx:id="PreferenceField" layoutX="33.0" layoutY="184.0" />
             <Label fx:id="errorLabel" layoutX="16.0" layoutY="341.0" prefHeight="21.0" prefWidth="293.0" />
          </children>
