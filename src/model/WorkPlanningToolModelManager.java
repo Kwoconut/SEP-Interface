@@ -42,18 +42,6 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
 
    public String getEmployeeScheduleStatus(int index, MyDate date)
    {
-      
-      // This method is used to display employee's activity during a day at a given date.
-      
-      
-      // Here the system if the employee has a vacation that awaits to be
-      // checked on the given date or is already on vacation, meaning that the
-      // system will search if there has been a vacation request by the employee
-      // and then checks if the date is between the startDate and endDate of
-      // that
-      // vacation and if the vacation has been checked or not.
-      // 2 OUTPUTS : VACATION or VACATION PENDING
-
       if (vacationList
             .getVacationByEmployee(employeeList.getEmployee(index)) != null)
       {
@@ -82,10 +70,6 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
          }
       }
 
-      // Here the system will check if the date we received as an argument,
-      // might be Sunday and if it is Sunday then everybody will be unavailable.
-      // OUTPUT: UNAVAILABLE
-
       Calendar sundayDate = Calendar.getInstance();
       sundayDate.clear();
       sundayDate.set(date.getYear(), date.getMonth() - 1, date.getDay());
@@ -93,11 +77,6 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
       {
          return Employee.status_unavailable;
       }
-
-      // Here the system will check if the employee is assigned to any analysis
-      // on the received date as an argument, and if he is assigned then the
-      // output will be the type of the analysis
-      // OUTPUT: ANALYSIS TYPE
 
       if (analysisList
             .getAnalysesByEmployee(employeeList.getEmployee(index)) != null)
@@ -115,8 +94,6 @@ public class WorkPlanningToolModelManager implements WorkPlanningToolModel
             }
          }
       }
-      
-      // In case none of the if's above , has been meeting the conditions then the system will return employee's status.
 
       return employeeList.getEmployee(index).getStatus();
    }
